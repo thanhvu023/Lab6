@@ -39,6 +39,8 @@ const Contact = () => {
         },
     });
 
+    console.log(formik)
+
   return (
     <form onSubmit={formik.handleSubmit} className="container-form">
 	    <TextField
@@ -48,7 +50,7 @@ const Contact = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
         />
-        {formik.errors.name && (<Typography variant="caption" color="red">{formik.errors.name}</Typography>)}
+        {formik.errors.name && formik.touched.name && (<Typography variant="caption" color="red">{formik.errors.name}</Typography>)}
         <TextField
             className="item-form"
 	        label="Email"
@@ -56,7 +58,7 @@ const Contact = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
         />
-        {formik.errors.email && (<Typography variant="caption" color="red">{formik.errors.email}</Typography>)}
+        {formik.errors.email && formik.touched.email && (<Typography variant="caption" color="red">{formik.errors.email}</Typography>)}
         <TextField
             className="item-form"
             label="Phone"
@@ -64,7 +66,7 @@ const Contact = () => {
             value={formik.values.phone}
             onChange={formik.handleChange}
         />
-        {formik.errors.phone && (<Typography variant="caption" color="red">{formik.errors.phone}</Typography>)}
+        {formik.errors.phone && formik.touched.phone && (<Typography variant="caption" color="red">{formik.errors.phone}</Typography>)}
         <FormControl sx={{ m: 1, minWidth: 600 }} className="item-form">
             <InputLabel id="demo-simple-select-autowidth-label">Program of Study</InputLabel>
             <Select
@@ -85,7 +87,7 @@ const Contact = () => {
                 <MenuItem value={5}>Artificial Intelligence</MenuItem>
                 <MenuItem value={6}>Digital Art & Design</MenuItem>
             </Select>
-            {formik.errors.program && (<Typography variant="caption" color="red">{formik.errors.program}</Typography>)}
+            {formik.errors.program && formik.touched.program && (<Typography variant="caption" color="red">{formik.errors.program}</Typography>)}
         </FormControl>
         <TextField
             className="item-form"
@@ -97,7 +99,7 @@ const Contact = () => {
             value={formik.values.message}
             onChange={formik.handleChange}
         />
-        {formik.errors.message && (<Typography variant="caption" color="red">{formik.errors.message}</Typography>)}
+        {formik.errors.message && formik.touched.message &&(<Typography variant="caption" color="red">{formik.errors.message}</Typography>)}
         <FormControlLabel 
             className="item-form"
             control={<Switch/>} 
@@ -106,7 +108,7 @@ const Contact = () => {
 	        value={formik.values.agree} 
             onClick={formik.handleChange}  
         />
-        {formik.errors.agree && (<Typography variant="caption" color="red">{formik.errors.agree}</Typography>)}
+        {formik.errors.agree && formik.touched.agree && (<Typography variant="caption" color="red">{formik.errors.agree}</Typography>)}
         <Button type='submit' className="btn-submit" variant="contained">
             Send
         </Button>
