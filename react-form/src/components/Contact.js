@@ -47,6 +47,7 @@ const Contact = () => {
             className="item-form"
             label="Name"
             name="name"
+            onBlur={() => formik.setTouched({...formik.touched, name: true})}
             value={formik.values.name}
             onChange={formik.handleChange}
         />
@@ -55,6 +56,7 @@ const Contact = () => {
             className="item-form"
 	        label="Email"
             name="email"
+            onBlur={() => formik.setTouched({...formik.touched, email: true})}
             value={formik.values.email}
             onChange={formik.handleChange}
         />
@@ -63,6 +65,7 @@ const Contact = () => {
             className="item-form"
             label="Phone"
             name="phone"
+            onBlur={() => formik.setTouched({...formik.touched, phone: true})}
             value={formik.values.phone}
             onChange={formik.handleChange}
         />
@@ -74,6 +77,7 @@ const Contact = () => {
                 id="demo-simple-select-autowidth"
                 label="Program of Stydy"
                 name="program"
+                onBlur={() => formik.setTouched({...formik.touched, program: true})}
                 value={formik.values.program}
                 onChange={formik.handleChange}
             >
@@ -96,6 +100,7 @@ const Contact = () => {
             multiline
             name='message'
             rows={4}
+            onBlur={() => formik.setTouched({...formik.touched, message: true})}
             value={formik.values.message}
             onChange={formik.handleChange}
         />
@@ -105,6 +110,7 @@ const Contact = () => {
             control={<Switch/>} 
             label="Agree to terms and conditions." 
             name='agree' 
+            onBlur={() => formik.setTouched({...formik.touched, agree: true})}
 	        value={formik.values.agree} 
             onClick={formik.handleChange}  
         />
